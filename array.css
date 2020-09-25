@@ -1,0 +1,109 @@
+body {
+    background-color: teal;
+}
+
+#users {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: teal;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.child {
+    text-align: center;
+    animation: fadeIn 20s;
+    box-sizing: border-box;
+    box-shadow: black 2px 1px 0 1px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    width: 25%;
+    -webkit-animation: fadeIn 2s;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+
+/* @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} */
+
+
+/* button {
+    background-color: white;
+} */
+
+#add {
+    color: rgb(23, 192, 192);
+    font-size: 20px;
+}
+
+button {
+    color: rgb(45, 211, 194);
+    font-size: 20px;
+    box-shadow: 1px 4px 36px 5px rgba(158, 190, 202, 0.35);
+}
+
+button:hover {
+    box-shadow: 1px 4px 36px 5px rgba(158, 190, 202, 0.35);
+    color: rgb(45, 211, 194);
+    font-size: 21px;
+}
+
+#edit {
+    color: green;
+    font-size: 18px;
+}
+
+#delete {
+    color: red;
+    font-size: 18px;
+}
+
+#edit:hover {
+    font-size: 20px;
+    color: rgb(34, 167, 34);
+}
+
+#delete:hover {
+    font-size: 20px;
+    color: rgb(245, 52, 52);
+}
+
+input {
+    width: 200px;
+    border: white 3px solid;
+    height: 20px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus,
+input[type=email]:focus {
+    box-shadow: 1px 4px 36px 5px rgba(243, 74, 74, 0.35);
+    outline: none;
+    width: 250px;
+}

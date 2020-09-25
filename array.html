@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="array.css">
+    <script src="https://kit.fontawesome.com/bc9f75cc29.js"></script>
+    <title>Array</title>
+</head>
+
+<body>
+    <!-- <button onclick="sayHello()">Say Hello</button> -->
+    <button id="add-user" style="margin: 10px;">Add User<i class="fas fa-user-plus" id="add"></i></button>
+
+    <div id="users">
+
+    </div>
+
+    <script>
+        //creating an array of objects
+        internalUser = [{
+                    "id": 1,
+                    "pic": "pic1.jpg",
+                    "name": "Mr Roland Carter",
+                    "email": "roland@gmail.com",
+                    "phone": "07011116000"
+
+                }, {
+                    "id": 2,
+                    "pic": "pic6.jpg",
+                    "name": "Mr Peter Briggs",
+                    "email": "peter@gmail.com",
+                    "phone": "08122990312"
+                }, {
+                    "id": 3,
+                    "pic": "pic11.jpg",
+                    "name": "Mr Stanley Parker",
+                    "email": "stanley@gmail.com",
+                    "phone": "08099003199"
+                }, {
+                    "id": 4,
+                    "pic": "pic9.jpg",
+                    "name": "Ms Gianna Bryan",
+                    "email": "mgiannar@gmail.com",
+                    "phone": "09033406072"
+                }, {
+                    "id": 5,
+                    "pic": "pic3.jpg",
+                    "name": "Mr Rashford Allen",
+                    "email": "rashlen@gmail.com",
+                    "phone": "08190070222"
+                }, {
+                    "id": 6,
+                    "pic": "pic14.jpg",
+                    "name": "Mrs Kate Ojo",
+                    "email": "mskayojo@gmail.com",
+                    "phone": "09011234111"
+                }, {
+                    "id": 7,
+                    "pic": "pic12.jpg",
+                    "name": "Mr Alex Wilson ",
+                    "email": "alwill@gmail.com",
+                    "phone": "08044221167"
+                }, {
+                    "id": 8,
+                    "pic": "pic8.jpg",
+                    "name": "Mrs Rose Leon",
+                    "email": "rose@gmail.com",
+                    "phone": "07044007787"
+                }
+
+            ]
+            //adding to the array using the last index
+        internalUser[internalUser.length] = {
+                "id": 9,
+                "pic": "pic15.jpg",
+                "name": "Mrs Magret Williams",
+                "email": "maggie@gmail.com",
+                "phone": "09012900055"
+
+            }
+            //function for collecting the information of new users using the add button 
+        const addNewUser = () => {
+
+                value = {
+                        "id": i + 2,
+                        "pic": "pic1.jpg",
+                        "name": prompt("Please enter your full name:"),
+                        "email": prompt("Please enter your email"),
+                        "phone": prompt("Enter your Phone Number:")
+
+
+
+                    }
+                    //adding the info to the array
+                internalUser.push(value)
+                    //adding the array to the html file
+                addUser()
+
+            }
+            //adding the array written in the js file to the html file
+        const addUser = () => {
+            usersCont = ''
+
+            for (i = 0; i < internalUser.length; i++) {
+                usersCont += `<div class="child">
+        
+        <img src="${internalUser[i].pic}" ><br>
+        <strong>ID</strong> : ${internalUser[i].id}<br><br>
+        <strong>Full Name</strong> : ${internalUser[i].name}<br><br>
+        <strong>Email</strong> : ${internalUser[i].email}<br><br>
+        <strong>Phone</strong> : ${internalUser[i].phone}<br><br>
+        <button id="edit-btn" onClick= "editUser(${i})"><i class="fas fa-user-edit" id ="edit"></i>
+        </button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <button id="delete-btn" onclick="deleteUser(${i})" ><i class="fas fa-trash-alt" id="delete"></i></button>
+        </div>
+        `
+            }
+
+            document.getElementById("users").innerHTML = usersCont
+        }
+
+        addUser()
+        document.getElementById('add-user').addEventListener('click', addNewUser)
+
+        function deleteUser(id) {
+            var confirmMessage = confirm("Are you sure want to delete this user record? You cannot undo this action.");
+            if (confirmMessage == true) {
+                internalUser.splice(id, 1)
+                addUser()
+            }
+
+        }
+
+        function editUser(id) {
+            let userDetails = {
+                "id": parseInt(prompt("please enter ID", internalUser[id].id)),
+                "pic": prompt("please select a picture", internalUser[id].pic),
+                "name": prompt("Please enter your full name", internalUser[id].name),
+                "email": prompt("Please enter your email", internalUser[id].email),
+                "phone": prompt("Enter your Phone Number", internalUser[id].phone)
+
+            }
+            internalUser[id] = userDetails
+            addUser()
+        }
+        localStorage.setItem("users", JSON.stringify(internalUser))
+    </script>
+</body>
+
+</html>
